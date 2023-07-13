@@ -75,6 +75,22 @@
         .animated-button {
             animation: pulse 2s infinite;
         }
+
+        #footer {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        #footer a {
+            display: inline-block;
+            margin: 0 5px;
+            text-decoration: none;
+            color: #4CAF50;
+        }
+
+        #footer .button {
+            margin: 5px;
+        }
     </style>
     <script>
         function updateOutput() {
@@ -98,6 +114,16 @@
             });
         }
 
+        function copySiteCode() {
+            var siteURL = prompt("Введите ссылку на сайт");
+            if (siteURL) {
+                // Выполнить действия по копированию кода с сайта
+                // Здесь можно добавить соответствующий код
+                var codeElement = document.getElementById("input");
+                codeElement.value = "Код: " + siteURL;
+            }
+        }
+
         setInterval(updateOutput, 1); // Обновлять результат каждую миллисекунду
     </script>
 </head>
@@ -109,12 +135,17 @@
         <div id="buttons">
             <button class="button animated-button" onclick="clearAll()">Удалить всё</button>
             <button class="button animated-button" onclick="resetPage()">Перезапустить</button>
-            <button class="button animated-button" onclick="copyCode()">Скопировать код</button>
+            <button class="button animated-button" onclick="copySiteCode()">Скопировать код из сайта</button>
             <button class="button animated-button" onclick="pasteCode()">Вставить</button>
         </div>
         <hr>
         <h2>Результат:</h2>
         <div id="output"></div>
+        <div id="footer">
+            <a href="https://linkm.me/users/ksenon" target="_blank">Link</a>
+            <button class="button animated-button" onclick="copyCode()">Скопировать код</button>
+        </div>
     </div>
 </body>
 </html>
+
